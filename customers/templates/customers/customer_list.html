@@ -1,0 +1,9 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Lista klientów{% endblock title %}
+
+{% block body %}
+    {% for customer in cusotmers %}
+        <div>{{ customer.name }}</div>
+    {% endfor %}
+{% endblock body %}
