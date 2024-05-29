@@ -1,14 +1,13 @@
 {% extends "accounts/base.html" %}
 
-{% block title %}Tworzenie klienta{% endblock title %}
+{% block title %}TEdytowanie klienta{% endblock title %}
 
 {% block body %}
-    {% if customer %}
-        <div>Edycja Klienta {{ customer.name }} powiodła się</div>
-    {% endif %}
-    <form action="{% url "/customers/customer_update/{{ pk }}" %}" method="post">
+    <form action="{% url "customer_update" customer.id %}" method="post">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" value="Usuń">
+        <input type="submit" value="OK">
+    <br/><br/>
+    <div><a href="{% url "customer_list" %}">Powrót do listy klientów</a></div>
   </form>
 {% endblock body %}

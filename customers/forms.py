@@ -18,7 +18,7 @@ class CustomerModelForm(forms.ModelForm):
         return contact_number
 
     def clean_nip(self):
-        nip = self.nip["nip"]
+        nip = self.cleaned_data['nip']
         if not nip.isdigit():
             raise ValidationError("NIP musi składać się tylko z cyfr!")
         if len(nip) != 10:

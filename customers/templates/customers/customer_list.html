@@ -3,7 +3,11 @@
 {% block title %}Lista klientów{% endblock title %}
 
 {% block body %}
-    {% for customer in cusotmers %}
-        <div>{{ customer.name }}</div>
+    {% for customer in customers %}
+        <div>
+            <a href="{% url "customer_detail" customer.id %}">{{ customer.name }}</a> -
+        <a href="{% url "customer_update" customer.id %}">Edytuj</a> -
+            <a href="{% url "customer_delete" customer.id %}">Usuń</a>
+        </div>
     {% endfor %}
 {% endblock body %}

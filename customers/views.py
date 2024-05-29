@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseNotFound, HttpResponse
@@ -9,9 +10,7 @@ from customers.models import Customer
 
 
 def customer_list(request):
-    customers = (
-        Customer.objects.all()
-    )
+    customers = Customer.objects.all()
 
     ctx = {
         "customers": customers
@@ -34,26 +33,24 @@ def customer_detail(request, pk):
 def customer_update(request, pk):
     customer = get_object_or_404(Customer, pk=pk)
 
-    if request.method == "GER":
+    if request.method == "GET":
         form = CustomerModelForm(instance=customer)
         ctx = {
-            "form":form,
-            "pk":pk
+            "form": form,
+            "id": pk,
+            "customer": customer
         }
         return render(request, "customers/customer_update.html", ctx)
 
     if request.method == "POST":
         form = CustomerModelForm(request.POST, instance=customer)
         if form.is_valid():
-            updated_customer = form.save()
-            ctx = {
-                "customer": updated_customer,
-                "form": CustomerModelForm(instance=updated_customer),
-            }
-            return render(request, "customers/customer_update.html", ctx)
+            form.save()
+            return redirect("customer_list")
 
         ctx = {
             "form": form,
+            "customer": customer
         }
         return render(request, "customers/customer_update.html", ctx)
 
@@ -66,19 +63,20 @@ def customer_delete(request, pk):
 
     if request.method == "GET":
         ctx = {
-            "customer": customer
+            "customer": customer,
+            "id": pk,
         }
         return render(request, "customers/customer_delete.html", ctx)
 
     if request.method == "POST":
         customer.delete()
-        messages.success(f"Klient {customer.name} został poprawnie usunięty")
-
+        messages.success(request, f"Klient {customer.name} został poprawnie usunięty")
         return redirect("customer_list")
 
     return HttpResponse("Method not allowed", status_code=405)
 
 
+@login_required
 def customer_create(request):
     if request.method == "GET":
         form = CustomerModelForm()
@@ -92,7 +90,7 @@ def customer_create(request):
         form = CustomerModelForm(request.POST)
         if form.is_valid():
             customer = form.save(commit=False)
-            customer.added_by = request.user
+            customer.created_by = request.user
             customer.save()
 
             ctx = {
