@@ -10,4 +10,6 @@
             <a href="{% url "customer_delete" customer.id %}">Usuń</a>
         </div>
     {% endfor %}
+    <br/><br/>
+    <div><a href="{% url "customer_create" %}">Stwórz nowego klienta</a></div>
 {% endblock body %}
