@@ -8,6 +8,10 @@
     <div>Numer kontaktowy: {{ customer.contact_number }}</div>
     <div>NIP: {{ customer.nip }}</div>
     <div>Osoba do kontaktu: {{ customer.contact_person }}</div>
+    <div>Umowa/y:</div>
+    {% for contract in customer.contract_set.all %}
+        <div>{{ contract.number }}</div>
+    {% endfor %}
     <br/><br/>
     <div><a href="{% url "customer_list" %}">Powrót do listy klientów</a></div>
 {% endblock body %}
