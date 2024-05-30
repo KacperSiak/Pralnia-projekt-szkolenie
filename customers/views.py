@@ -5,10 +5,11 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseNotFound, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
-from customers.forms import CustomerModelForm
+from customers.forms import CustomerModelForm, ContractModelForm
 from customers.models import Customer
 
 
+#### Customer Views ######
 def customer_list(request):
     customers = Customer.objects.all()
 
@@ -104,3 +105,35 @@ def customer_create(request):
         }
         return render(request, "customers/customer_create.html", ctx)
 
+
+
+#### Contract Views #####
+
+
+@login_required
+def contract_create(request):
+    if request.method == "GET":
+        form = ContractModelForm()
+        ctx = {
+            "form": form
+        }
+
+        return render(request, "contracts/contract_create.html", ctx)
+
+    if request.method == "POST":
+        form = ContractModelForm(request.POST)
+        if form.is_valid():
+            contract = form.save(commit=False)
+            contract.created_by = request.user
+            contract.save()
+
+            ctx = {
+                "contract": contract,
+                "form": ContractModelForm()
+            }
+            return render(request, "contracts/contract_create.html", ctx)
+
+        ctx = {
+            "form": form
+        }
+        return render(request, "contracts/contract_create.html", ctx)

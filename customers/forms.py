@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
-from customers.models import Customer
+from customers.models import Customer, Contract
 
 
 class CustomerModelForm(forms.ModelForm):
@@ -30,3 +30,10 @@ class CustomerModelForm(forms.ModelForm):
         if check_sum != digits[-1]:
             raise ValidationError("NIP się nie zgadza!")
         return nip
+
+
+class ContractModelForm(forms.ModelForm):
+    class Meta:
+        model = Contract
+        fields = {"number", "customer", "start_date", "end_date", "price_for_kg"}
+
