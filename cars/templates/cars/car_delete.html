@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Usuń samochód</title>
+</head>
+<body>
+    <h1>Usuń samochód</h1>
+    <p>Jesteś pewny/a, że chcesz usunąć "{{ car }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Potwierdź</button>
+    </form>
+    <a href="{% url 'car_list' %}">Anuluj</a>
+</body>
+</html>
