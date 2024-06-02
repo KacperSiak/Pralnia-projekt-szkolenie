@@ -8,6 +8,10 @@ from customers.views import (
     customer_update,
     customer_delete,
     contract_create,
+    contract_detail,
+    contract_update,
+    contract_delete,
+    contract_list,
 )
 
 
@@ -21,5 +25,9 @@ urlpatterns = [
 
     #### CONTRACTS ####
     path("contract_create", contract_create, name="contract_create"),
+    path("contract_detail/<int:pk>", contract_detail, name="contract_detail"),
+    path("contract_list", contract_list, name="contract_list"),
+    path("contract_delete/<int:pk>", contract_delete, name="contract_delete"),
+    path("contract_update/<int:pk>", contract_update, name="contract_update"),
 ]
 
