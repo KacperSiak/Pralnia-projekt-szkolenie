@@ -197,10 +197,10 @@ def contract_update(request, pk):
         return render(request, "contracts/contract_update.html", ctx)
 
     if request.method == "POST":
-        form = CustomerModelForm(request.POST, instance=contract)
+        form = ContractModelForm(request.POST, instance=contract)
         if form.is_valid():
             form.save()
-            return redirect("customer_list")
+            return redirect("contract_list")
 
         ctx = {
             "form": form,
