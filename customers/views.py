@@ -178,7 +178,7 @@ def contract_delete(request, pk):
     if request.method == "POST":
         contract.delete()
         messages.success(request, f"Klient {contract.number} został poprawnie usunięty")
-        return redirect("contract_list")
+        return redirect("customer_list")
 
     return HttpResponse("Method not allowed", status_code=405)
 
@@ -200,7 +200,7 @@ def contract_update(request, pk):
         form = ContractModelForm(request.POST, instance=contract)
         if form.is_valid():
             form.save()
-            return redirect("contract_list")
+            return redirect("customer_list")
 
         ctx = {
             "form": form,
