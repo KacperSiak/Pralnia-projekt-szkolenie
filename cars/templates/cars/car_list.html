@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista samochodów</title>
+</head>
+<body>
+    <h1>Lista samochodów</h1>
+    <a href="{% url 'car_create' %}">dodaj nowy samochod</a>
+    <ul>
+        {% for car in cars %}
+        <li>
+            <a href="{% url 'car_detail' car.pk %}">{{ car }}</a>
+            <a href="{% url 'car_update' car.pk %}">edytuj</a>
+            <form action="{% url 'car_delete' car.pk %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
