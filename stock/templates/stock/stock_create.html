@@ -1,0 +1,20 @@
+<!-- po mergu tego brancha zmienić na: klamra procent extends "accounts/base.html" procent klamra -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nowy asortyment</title>
+</head>
+<body>
+    {% if stock %}
+        <div>Nowy asortyment {{ stock.name }} został utworzony</div><br/>
+    {% endif %}
+    <form action="{%  url "stock_create" %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="OK">
+
+    </form>
+    <div><a href="{% url "stock_list" %}">Powrót do listy asortymentu</a></div>
+</body>
+</html>
