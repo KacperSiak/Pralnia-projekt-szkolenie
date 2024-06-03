@@ -1,0 +1,13 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Edytowanie umowy{% endblock title %}
+
+{% block body %}
+    <form action="{% url "contract_update" contract.id %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="OK">
+    <br/><br/>
+    <div><a href="{% url "contract_list" %}">Powrót do listy umów</a></div>
+  </form>
+{% endblock body %}
