@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
-from customers.models import Customer, Contract
+from customers.models import Customer, Contract, Invoice
 
 
 class CustomerModelForm(forms.ModelForm):
@@ -37,3 +37,8 @@ class ContractModelForm(forms.ModelForm):
         model = Contract
         fields = {"number", "customer", "start_date", "end_date", "price_for_kg"}
 
+
+class InvoiceModelForm(forms.ModelForm):
+    class Meta:
+        model = Invoice
+        fields = {"number", "contract_id", "date_of_receipt", "payment_date"}

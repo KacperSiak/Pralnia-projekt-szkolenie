@@ -28,3 +28,15 @@ class Contract(models.Model):
 
     def __str__(self):
         return f"Umowa o numerze {self.number}"
+
+
+class Invoice(models.Model):
+    number = models.CharField(max_length=100)
+    contract_id = models.ForeignKey(Contract, on_delete=models.CASCADE)
+    date_of_receipt = models.DateField()
+    payment_date = models.DateField()
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Umowa o numerze {self.number}"

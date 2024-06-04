@@ -12,6 +12,11 @@ from customers.views import (
     contract_update,
     contract_delete,
     contract_list,
+    invoice_create,
+    invoice_detail,
+    invoice_list,
+    invoice_update,
+    invoice_delete,
 )
 
 
@@ -29,5 +34,13 @@ urlpatterns = [
     path("contract_list", contract_list, name="contract_list"),
     path("contract_delete/<int:pk>", contract_delete, name="contract_delete"),
     path("contract_update/<int:pk>", contract_update, name="contract_update"),
+
+
+    ### INOVICES ###
+    path("invoice_create", invoice_create, name="invoice_create"),
+    path("invoice_detail/<int:pk>", invoice_detail, name="invoice_detail"),
+    path("invoice_list", invoice_list, name="invoice_list"),
+    path("invoice_delete/<int:pk>", invoice_delete, name="invoice_delete"),
+    path("invoice_update/<int:pk>", invoice_update, name="invoice_update"),
 ]
 
