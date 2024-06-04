@@ -3,11 +3,11 @@
 {% block title %}Edytowanie faktury{% endblock title %}
 
 {% block body %}
-    <form action="{% url "invoice_update" invoice.id %}" method="post">
+    <form action="{% url 'invoice_update' invoice.id %}" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="OK">
     <br/><br/>
-    <div><a href="{% url "customer_list" %}">Powrót do listy klientów</a></div>
+    <div><a href="{% url 'customer_list' %}">Powrót do listy klientów</a></div>
   </form>
 {% endblock body %}

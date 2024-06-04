@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1> Strona logowania </h1>
-        <form action="{% url "login" %}" method="post">
+        <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         {{ form }}
         <button type="sumbit">Zaloguj</button>

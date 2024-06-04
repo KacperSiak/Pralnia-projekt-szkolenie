@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Lista samochodów</title>
-</head>
-<body>
+{% extends "accounts/base.html" %}
+
+{% block title %}Lista samochodów{% endblock title %}
+
+{% block body %}
     <h1>Lista samochodów</h1>
     <a href="{% url 'car_create' %}">dodaj nowy samochod</a>
     <ul>
@@ -18,5 +17,4 @@
         </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock body %}

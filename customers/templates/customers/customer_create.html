@@ -6,11 +6,11 @@
     {% if customer %}
         <div>Udało się! Klient {{ customer.name }} został poprawnie utworzony!</div><br/>
     {% endif %}
-    <form action="{% url "customer_create" %}" method="post">
+    <form action="{% url 'customer_create' %}" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="OK">
 
     </form>
-    <div><a href="{% url "customer_list" %}">Powrót do listy klientów</a></div>
+    <div><a href="{% url 'customer_list' %}">Powrót do listy klientów</a></div>
 {% endblock body %}

@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Usuń samochód</title>
-</head>
-<body>
+{% extends "accounts/base.html" %}
+
+{% block title %}Usuń samochód{% endblock title %}
+
+{% block body %}
     <h1>Usuń samochód</h1>
     <p>Jesteś pewny/a, że chcesz usunąć "{{ car }}"?</p>
     <form method="post">
@@ -11,5 +10,4 @@
         <button type="submit">Potwierdź</button>
     </form>
     <a href="{% url 'car_list' %}">Anuluj</a>
-</body>
-</html>
+{% endblock body %}

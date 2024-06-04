@@ -5,11 +5,11 @@
 {% block body %}
     {% for invoice in invoices %}
         <div>
-            <a href="{% url "invoice_detail" invoice.id %}">{{ invoice.number }}</a> -
-        <a href="{% url "invoice_update" invoice.id %}">Edytuj</a> -
-            <a href="{% url "invoice_delete" invoice.id %}">Usuń</a>
+            <a href="{% url 'invoice_detail' invoice.id %}">{{ invoice.number }}</a> -
+        <a href="{% url 'invoice_update' invoice.id %}">Edytuj</a> -
+            <a href="{% url 'invoice_delete' invoice.id %}">Usuń</a>
         </div>
     {% endfor %}
     <br/><br/>
-    <div><a href="{% url "invoice_create" %}">Stwórz nową fakture</a></div>
+    <div><a href="{% url 'invoice_create' %}">Stwórz nową fakture</a></div>
 {% endblock body %}

@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Car Detail</title>
-</head>
-<body>
+{% extends "accounts/base.html" %}
+
+{% block title %}Car detail{% endblock title %}
+
+{% block body %}
     <h1>{{ car }}</h1>
     <p>Marka: {{ car.brand }}</p>
     <p>Model: {{ car.model }}</p>
@@ -12,5 +11,4 @@
     <p>Data ubezpieczenia: {{ car.insurance_date }}</p>
     <a href="{% url 'car_update' car.pk %}">Edytuj</a>
     <a href="{% url 'car_list' %}">Powrót do listy</a>
-</body>
-</html>
+{% endblock body %}
