@@ -4,7 +4,7 @@
 
 {% block body %}
     <div>Czy na pewno chcesz usunąć tą fakturę?</div><br/>
-    <form action="{% url "invoice_delete" invoice.id %}" method="post">
+    <form action="{% url 'invoice_delete' invoice.id %}" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Usuń">

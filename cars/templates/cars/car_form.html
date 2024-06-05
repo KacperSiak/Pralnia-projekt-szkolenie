@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{% if form.instance.pk %}Edytuj samochód{% else %}Dodaj samochód{% endif %}</title>
-</head>
-<body>
+{% extends "accounts/base.html" %}
+
+{% block title %}{% if form.instance.pk %}Edytuj samochód{% else %}Dodaj samochód{% endif %}{% endblock title %}
+
+{% block body %}
     <h1>{% if form.instance.pk %}Edytuj samochód{% else %}Dodaj samochód{% endif %}</h1>
     <form method="post">
         {% csrf_token %}
@@ -11,5 +10,4 @@
         <button type="submit">Zapisz</button>
     </form>
     <a href="{% url 'car_list' %}">Anuluj</a>
-</body>
-</html>
+{% endblock body %}
