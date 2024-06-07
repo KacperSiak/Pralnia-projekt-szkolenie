@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.db import models
 
+from stock.models import Stock
+
 User = settings.AUTH_USER_MODEL
 
 
@@ -25,6 +27,7 @@ class Contract(models.Model):
     price_for_kg = models.FloatField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    stocks = models.ManyToManyField(Stock, through='ContractStock')
 
     def __str__(self):
         return f"Umowa o numerze {self.number}"
@@ -40,3 +43,12 @@ class Invoice(models.Model):
 
     def __str__(self):
         return f"Umowa o numerze {self.number}"
+
+
+class ContractStock(models.Model):
+    stock = models.ForeignKey(Stock, on_delete=models.CASCADE)
+    contract = models.ForeignKey(Contract, on_delete=models.CASCADE)
+    is_leased = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Produkt: {self.stock} z umowy: {self.contract}"
