@@ -15,6 +15,13 @@
         </div>
     {% endfor %}
     <br/><br/>
+    <ul>
+    {% for stock in contract.stocks.all %}
+        <li>
+            {{ stock.name }}
+        </li>
+    {% endfor %}
+    </ul>
 
     <div><a href="{% url 'customer_list' %}">Powrót do listy klientów</a></div>
 {% endblock body %}
