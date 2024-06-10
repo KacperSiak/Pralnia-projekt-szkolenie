@@ -7,11 +7,13 @@
     {% if stock %}
         <div>Dokonaj modyfikacji {{ stock.name }}</div>
     {% endif %}
-    <form action="{% url 'stock_update' stock.pk %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="OK">
+        <div class="good-look">
+            <form action="{% url 'stock_update' stock.pk %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="OK">
 
-    </form>
+            </form>
+        </div>
     <div><a href="{% url 'stock_list' %}">Powrót do listy asortymentu</a></div>
 {% endblock body %}

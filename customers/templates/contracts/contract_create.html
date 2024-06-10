@@ -6,11 +6,13 @@
     {% if customer %}
         <div>Udało się! Umowa o numerze {{ contract.number }} została poprawnie utworzona!</div><br/>
     {% endif %}
-    <form action="{% url 'contract_create' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="OK">
+    <div class="good-look">
+        <form action="{% url 'contract_create' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="OK">
 
-    </form>
+        </form>
+    </div>
     <div><a href="{% url 'customer_list' %}">Powrót do listy klientów</a></div>
 {% endblock body %}

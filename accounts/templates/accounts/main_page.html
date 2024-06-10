@@ -1,4 +1,5 @@
 {% extends "accounts/base.html" %}
+{% load static %}
 
 {% block title %}Strona główna{% endblock title %}
 
@@ -6,9 +7,9 @@
 <section class="wrapper">
     <div class="container-fostrap">
         <div>
-            <img src="https://4.bp.blogspot.com/-7OHSFmygfYQ/VtLSb1xe8kI/AAAAAAAABjI/FxaRp5xW2JQ/s320/logo.png" class="fostrap-logo"/>
+            <img src="https://www.pralnia-lubon.pl/images/o-nas.jpg" class="fostrap-logo"/>
             <h1 class="heading">
-                Bootstrap Card Responsive
+                Menu główne
             </h1>
         </div>
         <div class="content">
@@ -16,84 +17,83 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-4">
                         <div class="card">
-                            <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                            <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" />
+                            <a class="img-card">
+                            <img src="{% static 'contract.jpg' %}" />
                           </a>
                             <div class="card-content">
                                 <h4 class="card-title">
-                                    <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
+                                    Lista kontrahentów
                                   </a>
                                 </h4>
                                 <p class="">
-                                    Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                                    Lista wszystkich kontrahentów razem z dostępem do informacji szczegółowych
                                 </p>
                             </div>
                             <div class="card-read-more">
-                                <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
-                                    Read More
+                                <a href="../customers/customer_list" class="btn btn-link btn-block">
+                                    Przejdź dalej
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <div class="card">
-                            <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                            <img src="https://3.bp.blogspot.com/-bAsTyYC8U80/VtLZRKN6OlI/AAAAAAAABjY/kAoljiMALkQ/s400/material%2Bnavbar.jpg" />
+                            <a class="img-card">
+                            <img src="{% static 'folder.jpg' %}" />
                           </a>
                             <div class="card-content">
                                 <h4 class="card-title">
-                                    <a href="http://www.fostrap.com/2016/02/awesome-material-design-responsive-menu.html"> Material Design Responsive Menu
+                                    Tworzenie nowego kontrahenta
                                   </a>
                                 </h4>
                                 <p class="">
-                                    Material Design is a visual programming language made by Google. Language programming...
+                                    Formularz tworzenia nowego kontrahenta
                                 </p>
                             </div>
                             <div class="card-read-more">
-                                <a href="https://codepen.io/wisnust10/full/ZWERZK/" class="btn btn-link btn-block">
-                                    Read More
+                                <a href="../customers/customer_create" class="btn btn-link btn-block">
+                                    Przejdź dalej
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <div class="card">
-                            <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                            <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                            <a class="img-card">
+                            <img src="{% static 'car.jpg' %}" />
                           </a>
                             <div class="card-content">
                                 <h4 class="card-title">
-                                    <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">5  Button Hover Animation Effects
+                                    Samochody
                                   </a>
                                 </h4>
                                 <p class="">
-                                    tutorials button hover animation, although very much a hover button is very beauti...
+                                    Lista samochodów i ich podstawowe informacje
                                 </p>
                             </div>
                             <div class="card-read-more">
-                                <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html" class="btn btn-link btn-block">
-                                    Read More
+                                <a href="../cars/car_list" class="btn btn-link btn-block">
+                                    Przejdź dalej
                                 </a>
                             </div>
                         </div>
                     </div>
                   <div class="col-xs-12 col-sm-4">
                         <div class="card">
-                            <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                            <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                            <a class="img-card">
+                            <img src="{% static 'magazyn.jpg' %}" />
                           </a>
                             <div class="card-content">
                                 <h4 class="card-title">
-                                    <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">5  Button Hover Animation Effects
-                                  </a>
+                                    Magazyn
                                 </h4>
                                 <p class="">
-                                    tutorials button hover animation, although very much a hover button is very beauti...
+                                    Lista całego asortymentu razem z jego ilością.
                                 </p>
                             </div>
                             <div class="card-read-more">
-                                <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html" class="btn btn-link btn-block">
-                                    Read More
+                                <a href="../stock/stock_list" class="btn btn-link btn-block">
+                                    Przejdź dalej
                                 </a>
                             </div>
                         </div>
