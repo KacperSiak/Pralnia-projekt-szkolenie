@@ -1,0 +1,15 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}DLista umów{% endblock title %}
+
+{% block body %}
+    {% for contract in contracts %}
+        <div>
+            <a href="{% url 'contract_detail' contract.id %}">{{ contract.number }}</a> -
+            <a href="{% url 'contract_update' contract.id %}">Edycja</a> -
+            <a href="{% url 'contract_delete' contract.id %}">Usuń</a>
+        </div>
+    {% endfor %}
+    <br/><br/>
+    <div><a href="{% url 'contract_create' %}">Stwórz nową umowę</a></div>
+{% endblock body %}

@@ -1,0 +1,17 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Modyfikuj asortyment{% endblock title %}
+
+{% block body %}
+    <h1>Modyfikuj asortyment</h1>
+    {% if stock %}
+        <div>Dokonaj modyfikacji {{ stock.name }}</div>
+    {% endif %}
+    <form action="{% url 'stock_update' stock.pk %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="OK">
+
+    </form>
+    <div><a href="{% url 'stock_list' %}">Powrót do listy asortymentu</a></div>
+{% endblock body %}

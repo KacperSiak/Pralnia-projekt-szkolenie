@@ -1,0 +1,12 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Usuwanie klienta{% endblock title %}
+
+{% block body %}
+    <div>Czy na pewno chcesz usunąć tego klienta?</div><br/>
+    <form action="{% url 'customer_delete' customer.id %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Usuń">
+  </form>
+{% endblock body %}

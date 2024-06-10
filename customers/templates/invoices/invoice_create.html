@@ -1,0 +1,16 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Tworzenie faktury{% endblock title %}
+
+{% block body %}
+    {% if invoice %}
+        <div>Udało się! Faktura o numerze {{ invoice.number }} został poprawnie utworzony!</div><br/>
+    {% endif %}
+    <form action="{% url 'invoice_create' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="OK">
+
+    </form>
+    <div><a href="{% url 'customer_list' %}">Powrót do listy klientów</a></div>
+{% endblock body %}

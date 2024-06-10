@@ -1,0 +1,20 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Detale klienta{% endblock title %}
+
+{% block body %}
+    <div>Nazwa: {{ customer.name }}</div>
+    <div>Adres: {{ customer.address }}</div>
+    <div>Numer kontaktowy: {{ customer.contact_number }}</div>
+    <div>NIP: {{ customer.nip }}</div>
+    <div>Osoba do kontaktu: {{ customer.contact_person }}</div>
+    <div>Umowa/y:</div>
+    {% for contract in customer.contract_set.all %}
+        <div> - <a href="{% url 'contract_detail' contract.id %}">{{ contract.number }}</a>
+                <a href="{% url 'contract_update' contract.id %}">Edytuj</a>
+                    <a href="{% url 'contract_delete' contract.id %}">Usuń</a>
+        </div>
+    {% endfor %}
+    <br/><br/>
+    <div><a href="{% url 'customer_list' %}">Powrót do listy klientów</a></div>
+{% endblock body %}

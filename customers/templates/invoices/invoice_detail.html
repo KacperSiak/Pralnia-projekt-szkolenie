@@ -1,0 +1,11 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Detale faktury{% endblock title %}
+
+{% block body %}
+    <div>Numer: {{ invoice.number }}</div>
+    <div>Data wpłynięcia: {{ invoice.date_of_receipt }}</div>
+    <div>Data płatności: {{ invoice.payment_date }}</div>
+    <br/><br/>
+    <div><a href="{% url 'customer_list' %}">Powrót do listy klientów</a></div>
+{% endblock body %}

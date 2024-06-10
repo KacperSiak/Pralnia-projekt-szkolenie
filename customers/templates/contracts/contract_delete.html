@@ -1,0 +1,12 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Usuwanie umowy{% endblock title %}
+
+{% block body %}
+    <div>Czy na pewno chcesz usunąć tą umowę?</div><br/>
+    <form action="{% url 'contract_delete' contract.id %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Usuń">
+  </form>
+{% endblock body %}

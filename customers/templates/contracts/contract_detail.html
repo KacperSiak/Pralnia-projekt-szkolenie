@@ -1,0 +1,27 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Detale klienta{% endblock title %}
+
+{% block body %}
+    <div>Numer: {{ contract.number }}</div>
+    <div>Data rozpoczęcia: {{ contract.start_date }}</div>
+    <div>Data zakońćzenia: {{ contract.end_date }}</div>
+    <div>cena za kilogram: {{ contract.price_for_kg }}</div>
+    <div>Faktura/y do umowy:</div>
+    {% for invoice in contract.invoice_set.all %}
+        <div> - <a href="{% url 'invoice_detail' invoice.id %}">{{ invoice.number }}</a>
+                <a href="{% url 'invoice_update' invoice.id %}">Edytuj</a>
+                    <a href="{% url 'invoice_delete' invoice.id %}">Usuń</a>
+        </div>
+    {% endfor %}
+    <br/><br/>
+    <ul>
+    {% for stock in contract.stocks.all %}
+        <li>
+            {{ stock.name }}
+        </li>
+    {% endfor %}
+    </ul>
+
+    <div><a href="{% url 'customer_list' %}">Powrót do listy klientów</a></div>
+{% endblock body %}

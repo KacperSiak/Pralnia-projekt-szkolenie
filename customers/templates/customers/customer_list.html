@@ -1,0 +1,16 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Lista klientów{% endblock title %}
+
+{% block body %}
+    {% for customer in customers %}
+        <div>
+            <a href="{% url 'customer_detail' customer.id %}">{{ customer.name }}</a> -
+        <a href="{% url 'customer_update' customer.id %}">Edytuj</a> -
+            <a href="{% url 'customer_delete' customer.id %}">Usuń</a>
+        </div>
+    {% endfor %}
+    <br/><br/>
+    <div><a href="{% url 'customer_create' %}">Stwórz nowego klienta</a></div>
+    <div><a href="{% url 'contract_create' %}">Dodaj umowe</a></div>
+{% endblock body %}

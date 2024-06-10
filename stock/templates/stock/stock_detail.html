@@ -1,0 +1,11 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Szczegóły asortymentu{% endblock title %}
+
+{% block body %}
+    <h1>Szczegóły asortymentu: {{ stock }}</h1><br>
+    <div>Nazwa: {{ stock.name }}</div>
+    <div>Ilość: {{ stock.quantity }}</div>
+    <div>Masa: {{ stock.unit_weight }}</div>
+    <div><a href="{% url 'stock_list' %}">Powrót do listy asortymentu</a></div>
+{% endblock body %}

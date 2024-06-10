@@ -1,0 +1,15 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Lista asortymnetu{% endblock title %}
+
+{% block body %}
+    <h1>Lista asortymentu</h1>
+    <a href="{%  url 'stock_create' %}">Dodaj nowy asortyment</a>
+    {% for stock in stocks %}
+        <div>
+            <a href="{% url 'stock_detail' stock.id %}">{{ stock.name }}</a> -
+            <a href="{% url 'stock_update' stock.id %}">Edytuj</a> -
+            <a href="{% url 'stock_delete' stock.id %}">Usuń</a>
+        </div>
+    {% endfor %}
+{% endblock body %}

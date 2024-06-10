@@ -1,0 +1,9 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Wylogowywanie{% endblock title %}
+
+{% block body %}
+    <h1>Wylogowano Poprawnie!!</h1>
+
+    <a href="{% url 'login' %}">Zaloguj ponownie</a>
+{% endblock body %}

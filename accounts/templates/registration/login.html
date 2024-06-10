@@ -1,0 +1,13 @@
+{% extends "accounts/base.html" %}
+
+{% block title %} Logowanie {% endblock title %}
+
+{% block body %}
+    <h1> Strona logowania </h1>
+        <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="sumbit">Zaloguj</button>
+
+    </form>
+{% endblock body %}
