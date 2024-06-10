@@ -24,7 +24,7 @@ body {
   vertical-align: middle;
 }
 .fostrap-logo {
-  width: 100px;
+  width: 300px;
   margin-bottom:15px
 }
 h1.heading {
@@ -97,4 +97,11 @@ h1.heading {
   padding:10px;
   font-weight:600;
   text-transform: uppercase
+}
+
+.good-look {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
 }
