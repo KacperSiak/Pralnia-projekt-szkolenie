@@ -1,0 +1,16 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Nowy asortyment{% endblock title %}
+
+{% block body %}
+    {% if stock %}
+        <div>Nowy asortyment {{ stock.name }} został utworzony</div><br/>
+    {% endif %}
+    <form action="{%  url 'stock_create' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="OK">
+
+    </form>
+    <div><a href="{% url 'stock_list' %}">Powrót do listy asortymentu</a></div>
+{% endblock body %}

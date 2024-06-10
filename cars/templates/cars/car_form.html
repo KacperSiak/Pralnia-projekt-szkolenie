@@ -1,0 +1,15 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}{% if form.instance.pk %}Edytuj samochód{% else %}Dodaj samochód{% endif %}{% endblock title %}
+
+{% block body %}
+    <h1>{% if form.instance.pk %}Edytuj samochód{% else %}Dodaj samochód{% endif %}</h1>
+    <div class="good-look">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Zapisz</button>
+        </form>
+    </div>
+    <a href="{% url 'car_list' %}">Anuluj</a>
+{% endblock body %}

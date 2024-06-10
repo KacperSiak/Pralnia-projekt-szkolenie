@@ -1,0 +1,19 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Lista samochodów{% endblock title %}
+
+{% block body %}
+    <h1>Lista samochodów</h1>
+    <a href="{% url 'car_create' %}">dodaj nowy samochod</a>
+    <ul class="list-group">
+        {% for car in cars %}
+        <li class="list-group-item">
+            <a href="{% url 'car_detail' car.pk %}">{{ car.brand }} {{ car.model }} {{ car.registration_number }}</a> &nbsp
+            <a href="{% url 'car_update' car.pk %}"><i class="bi bi-pencil"></i></a> &nbsp
+            <a href="{% url 'car_delete' car.pk %}"><i class="bi bi-trash3-fill"></i></a>
+        </li>
+        {% endfor %}
+    </ul>
+    <br/><br/>
+    <div><a href="{% url 'main_page' %}">Powrót na stronę główną</a></div>
+{% endblock body %}

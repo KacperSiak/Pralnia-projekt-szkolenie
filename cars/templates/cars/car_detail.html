@@ -1,0 +1,14 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Car detail{% endblock title %}
+
+{% block body %}
+    <h1>{{ car }}</h1>
+    <p>Marka: {{ car.brand }}</p>
+    <p>Model: {{ car.model }}</p>
+    <p>Numer rejestracyjny: {{ car.registration_number }}</p>
+    <p>Data przeglądu: {{ car.technical_review_date }}</p>
+    <p>Data ubezpieczenia: {{ car.insurance_date }}</p>
+    <a href="{% url 'car_update' car.pk %}">Edytuj</a>
+    <a href="{% url 'car_list' %}">Powrót do listy</a>
+{% endblock body %}

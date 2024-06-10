@@ -1,0 +1,12 @@
+{% extends "accounts/base.html" %}
+
+{% block title %} Profil użytkownika {% endblock title %}
+
+{% block body %}
+    {% if user_profile.user.first_name and user_profile.user.last_name %}
+        <div>Imię: {{ user_profile.user.first_name }}</div>
+        <div>Nazwisko: {{ user_profile.user.last_name }}</div>
+    {% endif %}
+    <div>Email: {{ user_profile.user.email }}</div>
+    <div>Stanowisko: {{ user_profile.user.role }}</div>
+{% endblock body %}

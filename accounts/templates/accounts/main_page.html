@@ -1,0 +1,106 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+
+{% block title %}Strona główna{% endblock title %}
+
+{% block body %}
+<section class="wrapper">
+    <div class="container-fostrap">
+        <div>
+            <img src="https://www.pralnia-lubon.pl/images/o-nas.jpg" class="fostrap-logo"/>
+            <h1 class="heading">
+                Menu główne
+            </h1>
+        </div>
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="card">
+                            <a class="img-card">
+                            <img src="{% static 'contract.jpg' %}" />
+                          </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    Lista kontrahentów
+                                  </a>
+                                </h4>
+                                <p class="">
+                                    Lista wszystkich kontrahentów razem z dostępem do informacji szczegółowych
+                                </p>
+                            </div>
+                            <div class="card-read-more">
+                                <a href="../customers/customer_list" class="btn btn-link btn-block">
+                                    Przejdź dalej
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="card">
+                            <a class="img-card">
+                            <img src="{% static 'folder.jpg' %}" />
+                          </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    Tworzenie nowego kontrahenta
+                                  </a>
+                                </h4>
+                                <p class="">
+                                    Formularz tworzenia nowego kontrahenta
+                                </p>
+                            </div>
+                            <div class="card-read-more">
+                                <a href="../customers/customer_create" class="btn btn-link btn-block">
+                                    Przejdź dalej
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="card">
+                            <a class="img-card">
+                            <img src="{% static 'car.jpg' %}" />
+                          </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    Samochody
+                                  </a>
+                                </h4>
+                                <p class="">
+                                    Lista samochodów i ich podstawowe informacje
+                                </p>
+                            </div>
+                            <div class="card-read-more">
+                                <a href="../cars/car_list" class="btn btn-link btn-block">
+                                    Przejdź dalej
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="col-xs-12 col-sm-4">
+                        <div class="card">
+                            <a class="img-card">
+                            <img src="{% static 'magazyn.jpg' %}" />
+                          </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    Magazyn
+                                </h4>
+                                <p class="">
+                                    Lista całego asortymentu razem z jego ilością.
+                                </p>
+                            </div>
+                            <div class="card-read-more">
+                                <a href="../stock/stock_list" class="btn btn-link btn-block">
+                                    Przejdź dalej
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock body %}

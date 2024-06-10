@@ -1,0 +1,16 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Edytowanie klienta{% endblock title %}
+
+{% block body %}
+    <div class="good-look">
+        <form action="{% url 'customer_update' customer.id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="OK">
+        </form>
+    </div>
+    <br/><br/>
+    <div><a href="{% url 'customer_list' %}">Powrót do listy klientów</a></div>
+
+{% endblock body %}
