@@ -126,6 +126,7 @@ def contract_create(request):
             contract = form.save(commit=False)
             contract.created_by = request.user
             contract.save()
+            form.save_m2m()
 
             ctx = {
                 "contract": contract,

@@ -2,6 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 
 from customers.models import Customer, Contract, Invoice
+from stock.models import Stock
 
 
 class CustomerModelForm(forms.ModelForm):
@@ -33,9 +34,14 @@ class CustomerModelForm(forms.ModelForm):
 
 
 class ContractModelForm(forms.ModelForm):
+    stocks = forms.ModelMultipleChoiceField(
+        queryset=Stock.objects.all(),
+        widget=forms.CheckboxSelectMultiple(),
+        required=True,
+    )
     class Meta:
         model = Contract
-        fields = {"number", "customer", "start_date", "end_date", "price_for_kg"}
+        fields = {"number", "customer", "start_date", "end_date", "price_for_kg", "stocks"}
 
 
 class InvoiceModelForm(forms.ModelForm):
