@@ -7,6 +7,8 @@ from cars.views import (
     car_update,
 )
 
+
+
 urlpatterns = [
     path("car_list", car_list, name='car_list'),
     path("car_detail/<int:pk>", car_detail, name='car_detail'),

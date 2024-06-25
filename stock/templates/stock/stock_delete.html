@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Usuń asortyment</h1>
-    <div>Asortyment {{ stock }} został usunięty</div><br/>
+    <div>Asortyment {{ stock }} zostanie usunięty</div><br/>
     <form action="{% url 'stock_delete' stock.pk %}" method="post">
         {% csrf_token %}
         <input type="submit" value="OK">
