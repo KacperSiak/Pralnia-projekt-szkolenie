@@ -71,7 +71,6 @@ def customer_delete(request, pk):
 
     if request.method == "POST":
         customer.delete()
-        messages.success(request, f"Klient {customer.name} został poprawnie usunięty")
         return redirect("customer_list")
 
     return HttpResponse("Method not allowed", status_code=405)
@@ -177,7 +176,6 @@ def contract_delete(request, pk):
 
     if request.method == "POST":
         contract.delete()
-        messages.success(request, f"Umowa o numerze {contract.number} został poprawnie usunięty")
         return redirect("customer_list")
 
     return HttpResponse("Method not allowed", status_code=405)
@@ -276,7 +274,6 @@ def invoice_delete(request, pk):
 
     if request.method == "POST":
         invoice.delete()
-        messages.success(request, f"Faktura o numerze {invoice.number} został poprawnie usunięty")
         return redirect("customer_list")
 
     return HttpResponse("Method not allowed", status_code=405)
